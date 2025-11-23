@@ -1,8 +1,11 @@
 import os
+import sys
 from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
-from .itinerary_chain import run_itinerary_llm
-from .budget import estimate_budget
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from itinerary_chain import run_itinerary_llm
+from budget import estimate_budget
 
 load_dotenv()
 app = Flask(__name__)
@@ -43,4 +46,4 @@ def plan():
     return render_template("index.html", result=data, budget=budget, form_payload=payload)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
