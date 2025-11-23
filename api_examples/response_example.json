@@ -1,0 +1,28 @@
+{
+  "itinerary": {
+    "summary": "Sample 3-day plan for Tokyo with coffee/design/hiking highlights.",
+    "days": [
+      {
+        "date": "Day 1",
+        "morning": [],
+        "afternoon": [],
+        "evening": []
+      }
+    ],
+    "tips": [
+      "Buy a Suica card",
+      "Reserve cafes",
+      "Check hours"
+    ]
+  },
+  "budget": {
+    "breakdown": {
+      "lodging": 320,
+      "food": 360,
+      "activities": 200,
+      "transit": 80
+    },
+    "total": 960,
+    "per_person_per_day": 160.0
+  }
+}
