@@ -1,5 +1,6 @@
 import os
 import json
+import re
 from openai import OpenAI
 from typing import Dict, Any
 from dataclasses import dataclass, asdict
@@ -67,9 +68,26 @@ def run_itinerary_llm(payload: Dict[str, Any]) -> Dict[str, Any]:
     content = response.choices[0].message.content
 
     try:
-        data = json.loads(content)
-    except Exception:
-        data = {"summary": content}
+        clean = content.strip()
+        clean = re.sub(r'^```[a-zA-Z]*\n', '', clean)
+        if clean.endswith('```'):
+            clean = clean[:-3].strip()
 
-    return data
+        data = json.loads(clean)
+
+        if "summary" not in data:
+            data["summary"] = ""
+        if "days" not in data:
+            data["days"] = []
+        if "tips" not in data:
+            data["tips"] = []
+
+        return data
+
+    except Exception:
+        return {
+            "summary": content,
+            "days": [],
+            "tips": []
+        }
 
