@@ -1,37 +1,116 @@
 # AI Travel Itinerary Generator (LLM + Personalization)
 
-**Stack:** Flask · LangChain · OpenAI API  
-**Concepts:** Generative AI, Prompt Engineering, Personalization, Budgeting
+Live Demo (Replit Deployment):  
+👉 https://8876cc40-604c-49f4-a2f6-9ec1e60d9b32-00-w8z19ng1r46u.picard.replit.dev/
 
-## Quickstart
-1. **Clone/Unzip** this project.
-2. **Install deps:** `pip install -r requirements.txt`
-3. **Set API key:** `export OPENAI_API_KEY="sk-..."` (Windows: `set OPENAI_API_KEY=...`)
-4. **Run:** `python app/app.py` then open http://127.0.0.1:5000
-5. Optional production: `gunicorn -w 2 -b 0.0.0.0:8000 app.app:app`
+## 📌 Project Overview
+This application generates personalized multi-day travel itineraries using:
 
-## What it does
-- Takes **destination**, **dates**, **interests**, **budget**, and **dietary needs**.
-- Generates a **3- or 5-day itinerary** with morning/afternoon/evening blocks.
-- Personalizes suggestions based on user profile (saved in a simple JSON store).
-- Adds a **budget planner** that estimates cost per day (lodging, food, activities, transit) and totals.
-- Exposes a simple **JSON API** at `/api/itinerary` for programmatic access.
+- Flask (backend server)
+- LangChain (prompt building + model handling)
+- OpenAI API (gpt-4o-mini default)
+- Custom Budget Estimator
+- HTML/CSS UI
 
-## Files
-- `app/app.py` — Flask routes and server
-- `app/itinerary_chain.py` — LangChain prompt and call wrapper
-- `app/budget.py` — Budget estimator
-- `app/templates/index.html` — UI form + results
-- `app/static/styles.css` — Styling
-- `requirements.txt` — Dependencies
-- `evaluation/` — Simulated charts for latency and cost
-- `presentation/` — Slide outline (Markdown) you can paste into PowerPoint/Slides
+The system outputs a complete structured itinerary including:
+- Daily plan (morning / afternoon / evening)
+- Activity explanations
+- Budget breakdown
+- Travel tips
+- JSON-format API output
 
-## Evaluation (simulated)
-See `evaluation/latency_vs_tokens.png` and `evaluation/cost_comparison.png` for quick, *simulated* benchmarks to include in the presentation.
+## 🚀 Quickstart (Local Setup)
 
-## Notes
-- This app is designed as a **capstone demo**: clean, minimal, and easy to extend.
-- Swap in different models by editing `itinerary_chain.py` (e.g., gpt-4o-mini vs. gpt-4.1).
+### 1. Clone or Download Repository
 
-(c) 2025-11-11 — Prepared for CAP 4630 presentation.
+### 2. Install Dependencies
+
+### 3. Set Your OpenAI API Key
+
+Mac/Linux:
+
+Windows CMD:
+
+Open your browser at:  
+👉 http://127.0.0.1:5000  
+
+### 5. Use Live Cloud Version (No installation needed)
+👉 https://8876cc40-604c-49f4-a2f6-9ec1e60d9b32-00-w8z19ng1r46u.picard.replit.dev/
+
+## 🧠 Features & Functionality
+
+### ✔ Personalized Itineraries  
+Generated based on:
+- Destination
+- Dates
+- Dietary needs
+- Interests
+- Budget style (tight / moderate / luxury)
+- Hotel location
+- Temperature (model creativity)
+- Model selection (gpt-4o-mini, gpt-4.1, etc.)
+
+### ✔ JSON Output  
+A strict structured JSON format is returned internally.  
+Fallback logic is included to handle malformed LLM responses.
+
+### ✔ Budget Planner  
+Automatically estimates:
+- Lodging  
+- Food  
+- Activities  
+- Transit  
+- Per-day totals  
+
+### ✔ Clean Web UI  
+User fills out a form and receives a formatted multi-day itinerary.
+
+## 📁 Project Structure
+
+ai_travel_itinerary_final/
+│
+├── app/
+│ ├── app.py # Flask web application
+│ ├── itinerary_chain.py # LangChain wrapper + prompts
+│ ├── budget.py # Budget estimator
+│ ├── templates/index.html # Main UI
+│ └── static/styles.css # Styling
+│
+├── evaluation/
+│ ├── latency_vs_tokens.png # Simulated latency chart
+│ └── cost_comparison.png # Simulated cost chart
+│
+├── presentation/
+│ ├── storyboard.md
+│ ├── checklist.md
+│ └── recording_script.md
+│
+├── canvas_submission_checklist.md
+├── requirements.txt
+├── .replit
+└── README.md
+
+## 📊 Evaluation (Simulated)
+
+Charts included for the presentation:
+
+- **Latency vs Token Size** → `evaluation/latency_vs_tokens.png`
+- **Cost Comparison** → `evaluation/cost_comparison.png`
+
+These are simulated metrics provided for academic purposes.
+
+## 📝 Notes
+
+- Created as the **Final Project for CAP4630 – FAU (Fall 2025)**  
+- Designed to be clean, extendable, and easy to run  
+- Supports swapping models by editing `itinerary_chain.py`
+- All files are included for Canvas submission:
+  - Code
+  - README
+  - Presentation markdowns
+  - Benchmark images
+
+## 📣 Author  
+**Curtis Williams**  
+AI Travel Itinerary Generator — Final Project Submission  
+2025
