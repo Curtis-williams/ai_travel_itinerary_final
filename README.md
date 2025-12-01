@@ -3,6 +3,10 @@
 Live Demo (Replit Deployment):  
 👉 https://8876cc40-604c-49f4-a2f6-9ec1e60d9b32-00-w8z19ng1r46u.picard.replit.dev/
 
+🎥 **Final Presentation Video**  
+Watch the full 10-minute presentation here: https://youtu.be/yJog_XGQbLE?si=MwSg2ZBX5uZmuz3A
+
+---
 
 ## 📌 Project Overview
 This application generates personalized multi-day travel itineraries using:
